@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Quiz App</string>
     <string name="result">Result</string>
-    <string name="hey_congratulations">Hey,Congratulations!</string>
+    <string name="hey_congratulations">Hey, Congratulations!</string>
 </resources>

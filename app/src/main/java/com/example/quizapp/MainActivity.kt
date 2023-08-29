@@ -4,22 +4,23 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.quizapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding= ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
         window.decorView.systemUiVisibility= View.SYSTEM_UI_FLAG_FULLSCREEN
-        btn_start.setOnClickListener {
-            if(et_Name.text.toString().isEmpty()){
+        binding.btnStart.setOnClickListener {
+            if(binding.etName.text.toString().isEmpty()){
                 Toast.makeText(this,"Please Enter Your Name",Toast.LENGTH_SHORT).show()
             }
             else{
                 var intent=Intent(this,QuizQuestionActivity::class.java)
-                intent.putExtra(Constants.USER_NAME,et_Name.text.toString())
+                intent.putExtra(Constants.USER_NAME,binding.etName.text.toString())
                 startActivity(intent)
                 finish() // By this we can't come back to previous page
             }
